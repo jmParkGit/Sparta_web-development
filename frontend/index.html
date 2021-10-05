@@ -53,9 +53,44 @@
         }
     </style>
     <script>
+        $(document).ready(function () {
+            $('#cards-box').empty();
+            listing();
+        });
+
+        function listing() {
+            $.ajax({
+                type: "GET",
+                url: "http://spartacodingclub.shop/post",
+                data: {},
+                success: function (response) {
+                    let rows = response['articles'];
+                    // $('#img-cat').attr('src', url);
+                    for (let i = 0; i < rows.length; i++) {
+                        let comment = rows[i]['comment'];
+                        let desc = rows[i]['desc'];
+                        let image = rows[i]['image'];
+                        let title = rows[i]['title'];
+                        let url = rows[i]['url'];
+                        let temp_html = `<div class="card">
+                                            <img class="card-img-top"
+                                                 src="${image}"
+                                                 alt="Card image cap">
+                                            <div class="card-body">
+                                                <h5 class="card-title card-title-color"><a href="${url}">${title}</a></h5>
+                                                <p class="card-text">${desc}</p>
+                                                <p class="card-comment">${comment}</p>
+                                            </div>
+                                        </div>`;
+                        $('#cards-box').append(temp_html);
+                    }
+                }
+            })
+        }
+
         function openclose() {
             let status = $('#post-box').css('display');
-            if(status=='block') {
+            if (status == 'block') {
                 $('#post-box').hide();
                 $('#btn-posting-box').text('포스팅박스 열기');
             } else {
@@ -74,14 +109,15 @@
         <p class="lead">중요한 링크를 저장해두고, 나중에 볼 수 있는 공간입니다</p>
         <hr class="my-4">
         <p class="lead">
-            <a onclick="openclose()" id="btn-posting-box" class="btn btn-primary btn-lg" href="#" role="button">포스팅박스 열기</a>
+            <a onclick="openclose()" id="btn-posting-box" class="btn btn-primary btn-lg" href="#" role="button">포스팅박스
+                열기</a>
         </p>
     </div>
     <div class="posting-box" id="post-box">
         <div class="form-group">
             <label>아티클 URL</label>
             <input type="email" class="form-control" id="article-url" aria-describedby="emailHelp"
-            placeholder="">
+                   placeholder="">
         </div>
         <div class="form-group">
             <label for="exampleFormControlTextarea1">간단 코멘트</label>
