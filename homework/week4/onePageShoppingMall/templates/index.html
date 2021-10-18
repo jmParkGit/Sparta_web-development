@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+
+    <title>스파르타코딩클럽 | 부트스트랩 연습하기</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            font-family: 'Gamja Flower', cursive;
+        }
+
+        .wrap {
+            width: 500px;
+            margin: auto;
+        }
+
+        .myitem {
+            background-color: green;
+            width: 500px;
+            height: 300px;
+
+            color: white;
+            text-align: center;
+
+            background-image: url("data:image/png;base64,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");
+            background-size: cover;
+            background-position: center;
+
+            border-radius: 10px;
+
+            padding-top: 20px;
+        }
+
+        .price {
+            font-size: medium;
+        }
+
+        .mybtn {
+            width: 100px;
+            margin: auto;
+            display: block;
+        }
+
+        .myRate {
+            color: blue;
+        }
+    </style>
+
+    <script>
+        $(document).ready(function () {
+            q1()
+            order_listing();
+        });
+
+        function q1() {
+            $.ajax({
+                type: "GET",
+                url: "http://spartacodingclub.shop/sparta_api/rate",
+                data: {},
+                success: function (response) {
+                    let rate = response['rate'];
+                    $('#span-rate').text(rate);
+                }
+            })
+        }
+
+        function order_listing() {
+            // 주문목록 보기 API 연결
+            $.ajax({
+                type: "GET",
+                url: "/order",
+                data: {},
+                success: function (response) {
+                    let orders=response["all_orders"]
+                    console.log(orders)
+                    for(let i=0; i<orders.length; i++) {
+                        let name=orders[i]['name']
+                        let count=orders[i]['count']
+                        let address=orders[i]['address']
+                        let contactNumber=orders[i]['contactNumber']
+
+                        let temp_html=`<tr>
+                                          <th scope="row">${name}</th>
+                                          <td>${count}</td>
+                                          <td>${address}</td>
+                                          <td>${contactNumber}</td>
+                                        </tr>`
+
+                        $('#myTable').append(temp_html)
+                    }
+                    //temp_html에 만들어야됨
+                }
+            })
+        }
+
+        function order() {
+            // 주문하기 API 연결
+            let name= $('#name').val();
+            let count=$('#count').val();
+            let address=$('#address').val();
+            let contactNumber=$('#contactNumber').val();
+            $.ajax({
+                type: "POST",
+                url: "/order",
+                data: {name_give:name, count_give:count, address_give:address, contactNumber_give:contactNumber},
+                success: function (response) { // 성공하면
+                    alert(response["msg"]);
+                    window.location.reload();
+                }
+            })
+        }
+    </script>
+</head>
+
+<body>
+<div class="wrap">
+    <div class="myitem"></div>
+    <div>
+        <h1>척척연필 <span class="price">가격: 10,000원/개</span></h1>
+        <p>이 연필로 글을 쓰면, 모든 것이 이루어집니다. 척척연필과 함께라면, 시험도 만점, 사랑하는 사람에게 쓴 러브레터에도 효과만점 *^^*</p>
+    </div>
+    <div>
+        <p>달러-원 환율: <span id="span-rate" class="myRate"></span></p>
+    </div>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-default">주문자 이름</span>
+        </div>
+        <input id="name" type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+    </div>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <label class="input-group-text" for="inputGroupSelect01">수량</label>
+        </div>
+        <select class="custom-select" id="count">
+            <option selected>수량을 선택하세요</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+        </select>
+    </div>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-default">주소</span>
+        </div>
+        <input id="address" type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+    </div>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-default">전화번호</span>
+        </div>
+        <input id="contactNumber" type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+    </div>
+    <button class="btn btn-primary mybtn" type="submit" onclick="order()">주문하기</button>
+</div>
+<table class="table" id="myTable">
+		  <thead>
+		    <tr>
+		      <th scope="col">이름</th>
+		      <th scope="col">수량</th>
+		      <th scope="col">주소</th>
+		      <th scope="col">전화번호</th>
+		    </tr>
+		  </thead>
+		  <tbody>
+		  </tbody>
+		</table>
+</body>
+
+</html>
